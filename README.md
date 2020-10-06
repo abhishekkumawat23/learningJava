@@ -1,12 +1,12 @@
 # Learning Java
 
 ## Java basic
-This is the content of javaa basics
+This is the content of java basics
 
 ### Hello world
 sdkngksdng
 
-This is the how you write a hello world
+This is the **how** you write a *hello world*. 
 
 ```
 public class HelloWorld {
