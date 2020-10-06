@@ -6,7 +6,7 @@ This is the content of java basics
 ### Hello world
 sdkngksdng
 
-This is the **how** you write a *hello world*. 
+This is the **how** you write a *hello world*. In this program, we will print the `Hello world` in the terminal.
 
 ```
 public class HelloWorld {
