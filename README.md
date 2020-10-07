@@ -48,6 +48,23 @@ public class HelloWorld {
     }
 ```
 
+#### Tota app
+```
+import java.util.Scanner;
+
+public class HelloWorld{
+
+    public static void main(String []args){
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Tota App: I repeat what you says. Say something");
+        String input = scan.nextLine();
+        
+        System.out.println(input);
+    }
+}
+```
+
 ### Editor, Debugger, Compiler, Runner
 JDK
 JRE
