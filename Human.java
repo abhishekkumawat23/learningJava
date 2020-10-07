@@ -32,4 +32,8 @@ public class Human {
     public void walk() {
         // Walk.
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6e10a336d9444f17a3d551bfd0aff41dd68428df
