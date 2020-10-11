@@ -5,11 +5,11 @@ public class Female extends Human {
     }
 
     public void givingBirth() {
-        System.out.println(this.firstName + " " + this.lastName + " is giving birth");
+        System.out.println(this.getFirstName() + " " + this.getLastName() + " is giving birth");
     }
 
     @Override
     public void gettingReady() {
-        System.out.println("I am getting ready in style 2");
+        System.out.println("I am getting ready in female's style.");
     }
 }

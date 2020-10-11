@@ -11,13 +11,58 @@ public abstract class Human {
     public static int handCount = 2;
     public static String hindiTranslation = "insaan";
 
-    public boolean isMale;
-    public Eye leftEye;
-    public Eye rightEye;
-    public int age = 0;
-    public String firstName = "";
-    public String lastName = "";
-    public String color = "";
+    private boolean isMale;
+    private EyeInterface leftEye;
+    private EyeInterface rightEye;
+    private int age = 0;
+    private String firstName = "";
+    private String lastName = "";
+    private String color = "";
+
+    // Getter
+    public boolean getIsMale() {
+        return this.isMale;
+    }
+
+    public EyeInterface getLeftEye() {
+        return this.leftEye;
+    }
+
+    public EyeInterface getRightEye() {
+        return this.rightEye;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    // Case 1: Get but not set.
+    // Case 2: Set but not get.
+    // Case 3: no get, and no set.
+    // Case 4: get, and set both.
+
+    // Benefits:
+    // 1. Flexibility between setting access for get and set. Examples: Case 1, 2, 3
+    // 2. Validation checks on set. Examples: Case 4.
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        if (age < 0 || age > 100) {
+            System.out.println("This age is not supported");
+        } else {
+            this.age = age;
+        }
+    }
 
     // Constructor is also a method, but a special kind of method.
 
@@ -34,6 +79,8 @@ public abstract class Human {
         this.rightEye = new Eye("blue", false); // isRight = true;
     }
 
+    // EyeInterface leftEye = new Eye("blue", true);
+
     public abstract void gettingReady();
 
     // Methods
@@ -45,6 +92,11 @@ public abstract class Human {
             return true; // Tummy full.
         }
     }
+
+    public boolean eat(int times) {
+        return eat("Apple", times);
+    }
+
 
     public static int sleep() {
         System.out.println("I am sleeping now.");

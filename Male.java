@@ -6,6 +6,6 @@ public class Male extends Human {
 
     @Override
     public void gettingReady() {
-        System.out.println("I am getting ready in style 1");
+        System.out.println("I am getting ready in men's style");
     }
 }
