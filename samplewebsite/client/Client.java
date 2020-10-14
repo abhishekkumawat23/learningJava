@@ -25,5 +25,8 @@ public class Client {
 
         // Closing the socket
         clientSocket.close();
+
+        // Close the streams
+        dataInputStream.close();
     }
 }
