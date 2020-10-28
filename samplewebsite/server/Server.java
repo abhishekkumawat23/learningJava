@@ -19,6 +19,8 @@ public class Server {
         // 3) After accepting the connection, gets the socket of that client.
         Socket clientSocket = serverSocket.accept();
 
+        System.out.println("Client address is: " + clientSocket.getPort());
+
         // Getting the output stream of the client socket.
         // Note: Output stream represents the data which will come from client to server.
         // Note: Output stream represents the data in byte format.
@@ -27,24 +29,27 @@ public class Server {
         // That's why we are wrapping the outputStream object in dataOutputStream, so that we can use Java types instead of bytes.
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 
-        // Writing the data to the pipe, so that it can go to the client.
-        // Note: This data will not go to the client, as it is not yet flushed.
-        dataOutputStream.writeUTF("Hello guys, I am the server. I need respect.");
+        // i = 0, 1, 2, 3, .., 49
+        for (int i = 0; i < 50; i++) {
+            // Writing the data to the pipe, so that it can go to the client.
+            // Note: This data will not go to the client, as it is not yet flushed.
+            dataOutputStream.writeUTF("Hello guys, I am the server. I need respect.");
 
-        // Flushing the output data from server to client via socket pipe.
-        dataOutputStream.flush();
-
-        // Close the sockets
-        // Note: Closing a socket helps in freeing the port quickly.
-        // If the port is not closed, it can't be used by any other program/process in server's machine.
-        clientSocket.close();
-        serverSocket.close();
+            // Flushing the output data from server to client via socket pipe.
+            dataOutputStream.flush();
+        }
 
         // Closing the input and output streams
         // Note: Close all streams, and sockets, which are created to communicate with outside your world.
         // Your world is within your RAM area.
         // To talk with another process, hard disk files, another machine via ports, we need connections, and they should be closed after use.
         dataOutputStream.close();
+
+        // Close the sockets
+        // Note: Closing a socket helps in freeing the port quickly.
+        // If the port is not closed, it can't be used by any other program/process in server's machine.
+        clientSocket.close();
+        serverSocket.close();
         
     }
 }
