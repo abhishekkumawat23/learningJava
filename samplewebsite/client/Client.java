@@ -1,6 +1,7 @@
 package samplewebsite.client;
 
 import java.net.*;
+import java.util.Scanner;
 import java.io.*;
 
 public class Client {
@@ -18,15 +19,17 @@ public class Client {
         // Using data input stream, we can access the input in Java data types.
         // Data input stream makes our life easier, as it uderstands Java data types instead of raw bytes type.
         DataInputStream dataInputStream = new DataInputStream(inputStream);
-
-        // Read the data which server sent us.
-        String inputFromServer = dataInputStream.readUTF();
-        System.out.println(inputFromServer);
-
-        // Closing the socket
-        clientSocket.close();
+        
+        for (int i = 0; i < 50; i++) {
+            // Read the data which server sent us.
+            String inputFromServer = dataInputStream.readUTF();
+            System.out.println(inputFromServer);
+        }
 
         // Close the streams
         dataInputStream.close();
+
+        // Closing the socket
+        clientSocket.close();
     }
 }

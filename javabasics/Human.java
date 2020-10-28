@@ -15,7 +15,7 @@ public abstract class Human {
     private EyeInterface leftEye;
     private EyeInterface rightEye;
     private int age = 0;
-    private String firstName = "";
+    private String firstName = "Abhi";
     private String lastName = "";
     private String color = "";
 
