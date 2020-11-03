@@ -11,7 +11,7 @@ public class RunningSum {
     // Space complexity: O(n)
     public static int[] solveApproach1(int[] input) {
         int length = input.length;
-        int[] result = new int[length]; // O(n)
+        int[] result = new int[length];
 
         for (int i = 0; i < length; i++) {
             int sum = 0;
@@ -25,6 +25,8 @@ public class RunningSum {
     }
 
     // Time complexity good, space complexity bad.
+    // Time complexity: O(n) -> n is the length of input array
+    // Space complexity: O(n)
     public static int[] solveApproach2(int[] input) {
         int length = input.length;
         int[] result = new int[length];
@@ -38,6 +40,8 @@ public class RunningSum {
     }
 
     // Time complexity - good, space complexity good
+    // Time complexity: O(n)
+    // Space complexity: O(1)
     public static int[] solveApproach3(int[] input) {
         int length = input.length;
         

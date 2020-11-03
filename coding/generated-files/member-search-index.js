@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"coding","c":"Human","l":"eat()"},{"p":"coding","c":"Human","l":"Human()","url":"%3Cinit%3E()"},{"p":"coding","c":"Human","l":"sleep(int)"}]
