@@ -39,6 +39,8 @@ public class DataStructureUser {
 
         // TODO: how to get all the elements?
         // We want a way that user gets all the values, but can't update it.
+        // int[] array = arrayList.getAll();
+        // arrayList.set(2, 15);
     }
 
     public static void updateValues(ArrayList arrayList) {
