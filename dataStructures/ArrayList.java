@@ -1,100 +1,59 @@
 package dataStructures;
 
-public class ArrayList {
-    // {"Saloni28", "Abhishek2"}
-    private int[] array = new int[8]; // inner array ki length.
-    private int size = 0; // arrayList ki size.
+// Note: We solved the problem of having a specific type of arraylist by using generic.
+// which is a compile time concept.
+public class ArrayList<E> {
+    // Length of array and size of arrayList are different things.
+    // In starting length of array is 8, and size is 0.
+    // Length of array always increase in power of 2.
+    // But size increases one by one.
+    private E[] array = (E[]) new Object[8];
+    private int size = 0;
 
-    public int getSize() {
-        return size;
+    // Constructor method
+    public ArrayList() {
+
     }
 
-    public void add(int value) { // amortized O(1), O(1)
-        // Note: Since if is getting called only on powers of 2,
-        // from the GP infinite formuls, it comes out to be amortized O(1).
-        if (size == array.length) { // O(1), O(1)
-            increaseSize(); // O(n), O(n)
+    // Note: Revise the amprtized time complexicity concept.
+    public void add(E value) {
+        // This means internal array is full, so we need to increase its size.
+        if (size == array.length) {
+            increaseSize();
         }
-
-        array[size++] = value; // O(1), O(1)
+        
+        array[size++] = value;
     }
 
-    private void increaseSize() { // O(n), O(n)
-        // TODO: Why double, why not triple, or increse by 10?
-        // Note: Doubling the size.
-        int[] newArray = new int[2*this.array.length]; // O(1), O(n) where n is the current length of the array.
+    private void increaseSize() {
+        // Create the new array of double size.
+        E[] newArray = (E[]) new Object[array.length*2];
 
-        // Copying the data from old array to new array.
-        for(int i = 0; i < this.array.length; i++) { // O(n), O(1)
-            newArray[i] = this.array[i]; // O(1), O(1)
-        }
-
-        // Pointing array to newArray.
-        this.array = newArray; // O(1), O(1)
-    }
-
-    // O(n) where n is the length of 'values' input.
-    public void addAll(int[] values) {
-        for (int i = 0; i < values.length; i++) {
-            add(values[i]);
-        }
-    }
-
-    // O(1)
-    public int get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("index should be in [0, size)");
-        }
-
-        return array[index];
-    }
-    
-    public int[] getAll() {
-        int[] copiedArray = new int[array.length];
+        // Copy data from old array to new array.
         for (int i = 0; i < array.length; i++) {
-            copiedArray[i] = array[i];
-        }
-        return copiedArray;
-    }
-
-    /** Set the new value at the given index. */
-    public void set(int index, int value) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("index should be in [0, size)");
-        }
-
-        array[index] = value;
-    }
-
-    /**
-     * Remove the last element from the list.
-     * 
-     * @return Removed element.
-     */
-    public int removeLast() {
-        if (size == 0) {
-            throw new IllegalStateException("ArrayList is already empty");
-        }
-
-        // Decrease size.
-        if (size == array.length / 2) {
-            decreaseSize();
-        }
-
-        // Remove
-        return array[--size];
-    }
-
-    /** Decrease the size by 2. */
-    private void decreaseSize() {
-        int[] newArray = new int[array.length/2];
-
-        // Copy data.
-        for (int i = 0; i < newArray.length; i++) {
             newArray[i] = array[i];
         }
 
-        // Point to new array.
+        // Assing the array variable to new array.
         array = newArray;
     }
+
+    public E remove(int index) {
+        E toBeRemoved = array[index];
+        for (int i = index + 1; i < size; i++) {
+            array[i-1] = array[i];
+        }
+        size--;
+        return toBeRemoved;
+    }
+
+    public E removeLast(){
+        // Last element is size-1.
+        return array[--size];
+    }
+
+    public E get(int index) {
+        return array[index];
+    }
+    
 }
