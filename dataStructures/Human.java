@@ -1,6 +1,6 @@
 package dataStructures;
 
-public class Human extends Animal {
+public class Human extends Animal implements Breathable {
 
     private String name;
     private String color;
@@ -10,6 +10,16 @@ public class Human extends Animal {
         this.name = name;
         this.color = color;
         this.age = age;
+    }
+
+    @Override
+    public void breathe(String gas) {
+        System.out.println("I am breahting " + gas + "gas");
+    }
+
+    @Override
+    public void khasna() {
+
     }
 
     @Override
